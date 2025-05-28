@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ejercicios - Semana 04</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff7f5;
+      overflow-x: hidden;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('fondo.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px) brightness(0.9);
+      opacity: 0.5;
+      z-index: -2;
+    }
+
+    .navegacion .logo {
+      color: white;
+      padding: 15px;
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      background-color: #FF9A8B;
+      box-shadow: 0 2px 8px rgba(255,154,139,0.4);
+    }
+
+    .contenido {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px 30px;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(255,154,139,0.15);
+      position: relative;
+      z-index: 10;
+    }
+
+    h3 {
+      color: #FF9A8B;
+      font-size: 26px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .tarjeta {
+      background-color: #FFE8E0;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(255,154,139,0.2);
+      margin-bottom: 30px;
+    }
+
+    .tarjeta:hover {
+      background-color: #FF9A8B;
+      color: rgb(255, 0, 0);
+    }
+
+    .titulo {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .descripcion {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    pre {
+      background-color: #fff0eb;
+      padding: 10px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 14px;
+    }
+
+    .boton {
+      display: block;
+      background-color: #FF9A8B;
+      color: white;
+      padding: 12px 28px;
+      text-decoration: none;
+      border-radius: 20px;
+      font-size: 18px;
+      margin: 40px auto 0;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(255,154,139,0.4);
+      width: fit-content;
+    }
+
+    .boton:hover {
+      background-color: #e47875;
+      box-shadow: 0 5px 15px rgba(228,120,117,0.7);
+    }
+
+    .particulas {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+    }
+
+    .particula {
+      width: 10px;
+      height: 10px;
+      background-color: #ffc1b6;
+      position: absolute;
+      border-radius: 50%;
+      animation: flotar 10s infinite ease-in-out;
+    }
+
+    .particula:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+    .particula:nth-child(2) { top: 50%; left: 25%; animation-delay: 2s; }
+    .particula:nth-child(3) { top: 70%; left: 40%; animation-delay: 4s; }
+    .particula:nth-child(4) { top: 30%; left: 80%; animation-delay: 6s; }
+    .particula:nth-child(5) { top: 80%; left: 65%; animation-delay: 8s; }
+
+    @keyframes flotar {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      50% { transform: translateY(-20px) scale(1.2); opacity: 0.6; }
+      100% { transform: translateY(0) scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Partículas de fondo -->
+  <div class="particulas">
+    <div class="particula"></div>
+    <div class="particula"></div>
+    <div class="particula"></div>
+    <div class="particula"></div>
+    <div class="particula"></div>
+  </div>
+
+  <header>
+    <nav class="navegacion">
+      <div class="logo">Ejercicios Resueltos</div>
+    </nav>
+  </header>
+
+  <section class="contenido">
+    <h3>Ejercicios Prácticos - Semana 04</h3>
+
+    <div class="tarjeta">
+      <div class="titulo">Ejemplo A: HTML Básico</div>
+      <div class="descripcion">Estructura simple de una página con título y párrafo.</div>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Página Básica&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hola Mundo&lt;/h1&gt;
+  &lt;p&gt;Este es un párrafo simple.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+
+    <div class="tarjeta">
+      <div class="titulo">Ejemplo B: HTML Avanzado</div>
+      <div class="descripcion">Uso de formularios con distintos tipos de input y etiquetas semánticas.</div>
+      <pre><code>&lt;form action="#" method="post"&gt;
+  &lt;label for="nombre"&gt;Nombre:&lt;/label&gt;
+  &lt;input type="text" id="nombre" name="nombre" required&gt;
+  
+  &lt;fieldset&gt;
+    &lt;legend&gt;Género&lt;/legend&gt;
+    &lt;input type="radio" id="masculino" name="genero" value="masculino"&gt;
+    &lt;label for="masculino"&gt;Masculino&lt;/label&gt;
+    &lt;input type="radio" id="femenino" name="genero" value="femenino"&gt;
+    &lt;label for="femenino"&gt;Femenino&lt;/label&gt;
+  &lt;/fieldset&gt;
+  
+  &lt;label for="comentarios"&gt;Comentarios:&lt;/label&gt;
+  &lt;textarea id="comentarios" name="comentarios"&gt;&lt;/textarea&gt;
+  
+  &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+    </div>
+
+    <div class="tarjeta">
+      <div class="titulo">Ejemplo C: CSS Básico</div>
+      <div class="descripcion">Estilizando párrafos y títulos con colores y tipografía básica.</div>
+      <pre><code>h1 {
+  color: #FF9A8B;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+p {
+  color: #333333;
+  font-size: 16px;
+  line-height: 1.5;
+}</code></pre>
+    </div>
+
+    <div class="tarjeta">
+      <div class="titulo">Ejemplo D: CSS Avanzado</div>
+      <div class="descripcion">Animación sencilla con keyframes y pseudo-clases para interacción.</div>
+      <pre><code>.boton {
+  background-color: #FF9A8B;
+  padding: 12px 24px;
+  border-radius: 20px;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+  background-color: #e47875;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}</code></pre>
+    </div>
+
+    <a href="proyecto4.html" class="boton">← Volver</a>
+  </section>
+</body>
+</html>

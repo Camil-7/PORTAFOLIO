@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Temas - Semana 04</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff7f5;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('fondo.jpg'); /* Reemplaza con tu imagen */
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px) brightness(0.9);
+      opacity: 0.5;
+      z-index: -2;
+    }
+
+    .navegacion .logo {
+      color: white;
+      padding: 15px;
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      background-color: #FF9A8B;
+      box-shadow: 0 2px 8px rgba(255,154,139,0.4);
+    }
+
+    .contenido {
+      max-width: 960px;
+      margin: 30px auto;
+      padding: 20px 30px;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(255,154,139,0.15);
+      position: relative;
+      z-index: 10;
+    }
+
+    h2 {
+      color: #FF9A8B;
+      font-size: 26px;
+      border-bottom: 3px solid #FF9A8B;
+      padding-bottom: 6px;
+      margin-top: 30px;
+    }
+
+    .lista-temas {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .tema {
+      background-color: #FFE8E0;
+      border-left: 6px solid #FF9A8B;
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(255,154,139,0.2);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .tema:hover {
+      background-color: #FF9A8B;
+      color: white;
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(255,154,139,0.5);
+    }
+
+    .tema strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 18px;
+    }
+
+    .boton {
+      display: inline-block;
+      background-color: #FF9A8B;
+      color: white;
+      padding: 12px 28px;
+      text-decoration: none;
+      border-radius: 20px;
+      font-size: 18px;
+      margin: 30px auto 0;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(255,154,139,0.4);
+      transition: background-color 0.3s ease;
+    }
+
+    .boton:hover {
+      background-color: #e47875;
+      box-shadow: 0 5px 15px rgba(228,120,117,0.7);
+    }
+
+    /* Estilos para el modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 12px;
+      max-width: 600px;
+      width: 100%;
+      padding: 25px 30px;
+      box-shadow: 0 5px 25px rgba(255,154,139,0.6);
+      position: relative;
+      color: #333;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    .modal-content h3 {
+      margin-top: 0;
+      color: #FF9A8B;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #FF9A8B;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      user-select: none;
+    }
+
+    .close-modal:hover {
+      color: #e47875;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navegacion">
+      <div class="logo">Temas Aprendidos</div>
+    </nav>
+  </header>
+
+  <section class="contenido">
+    
+    <h2>HTML Básico</h2>
+    <div class="lista-temas">
+      <div class="tema" data-concepto="HTML es el lenguaje de marcado que estructura una página web. Un documento HTML tiene una estructura básica con etiquetas como &lt;html&gt;, &lt;head&gt; y &lt;body&gt;."><strong>1.</strong> Introducción al HTML y estructura básica de un documento.</div>
+      <div class="tema" data-concepto="Las etiquetas principales de HTML: &lt;html&gt; define el documento, &lt;head&gt; contiene metadatos, y &lt;body&gt; contiene el contenido visible."><strong>2.</strong> Etiquetas principales: &lt;html&gt;, &lt;head&gt;, &lt;body&gt;.</div>
+      <div class="tema" data-concepto="Formatear texto usando etiquetas como &lt;p&gt; para párrafos, &lt;h1&gt;-&lt;h6&gt; para encabezados, &lt;strong&gt; para texto fuerte, &lt;em&gt; para énfasis, &lt;br&gt; para saltos de línea y &lt;hr&gt; para líneas horizontales."><strong>3.</strong> Formateo de texto con &lt;p&gt;, &lt;h1&gt;-&lt;h6&gt;, &lt;strong&gt;, &lt;em&gt;, &lt;br&gt;, &lt;hr&gt;.</div>
+      <div class="tema" data-concepto="Listas en HTML: &lt;ul&gt; para listas sin orden, &lt;ol&gt; para listas ordenadas y &lt;li&gt; para cada ítem."><strong>4.</strong> Listas con &lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;.</div>
+      <div class="tema" data-concepto="Las imágenes se agregan con la etiqueta &lt;img&gt;, donde el atributo src indica la ruta y alt es un texto alternativo."><strong>5.</strong> Imágenes con &lt;img&gt;, atributos src y alt.</div>
+      <div class="tema" data-concepto="Los enlaces se crean con &lt;a&gt; y usan href para la dirección y target para abrir en nueva pestaña o ventana."><strong>6.</strong> Enlaces con &lt;a&gt;, atributos href y target.</div>
+      <div class="tema" data-concepto="Tablas se estructuran con &lt;table&gt;, filas con &lt;tr&gt;, celdas con &lt;td&gt; y encabezados con &lt;th&gt;."><strong>7.</strong> Tablas con &lt;table&gt;, &lt;tr&gt;, &lt;td&gt;, &lt;th&gt;.</div>
+      <div class="tema" data-concepto="Formularios básicos usan &lt;form&gt;, &lt;input&gt; para campos y &lt;label&gt; para etiquetas descriptivas."><strong>8.</strong> Formularios básicos: &lt;form&gt;, &lt;input&gt;, &lt;label&gt;.</div>
+      <div class="tema" data-concepto="Los comentarios en HTML se escriben con &lt;!-- Comentario --&gt; y no se muestran en la página."><strong>9.</strong> Comentarios en HTML: &lt;!-- Comentario --&gt;.</div>
+      <div class="tema" data-concepto="Etiquetas semánticas organizan el contenido: &lt;header&gt; para encabezados, &lt;footer&gt; para pies, &lt;main&gt; para contenido principal, &lt;section&gt; y &lt;article&gt; para secciones."><strong>10.</strong> Estructura semántica: &lt;header&gt;, &lt;footer&gt;, &lt;main&gt;, &lt;section&gt;, &lt;article&gt;.</div>
+    </div>
+
+    <h2>HTML Avanzado</h2>
+    <div class="lista-temas">
+      <div class="tema" data-concepto="Etiquetas para estructurar contenido multimedia: &lt;audio&gt; para audio y &lt;video&gt; para video con controles integrados."><strong>1.</strong> Multimedia: &lt;audio&gt; y &lt;video&gt;.</div>
+      <div class="tema" data-concepto="Metadatos y configuración del documento con &lt;meta&gt; para codificación, viewport, autor, etc."><strong>2.</strong> Metadatos con &lt;meta&gt;.</div>
+      <div class="tema" data-concepto="Formularios avanzados con campos como select, textarea, checkbox y radio buttons."><strong>3.</strong> Formularios avanzados: &lt;select&gt;, &lt;textarea&gt;, checkbox, radio.</div>
+      <div class="tema" data-concepto="HTML5 incluye APIs como localStorage para guardar datos en el navegador y geolocalización para obtener ubicación."><strong>4.</strong> APIs HTML5: localStorage, geolocalización.</div>
+      <div class="tema" data-concepto="Elementos interactivos: &lt;details&gt; para mostrar detalles ocultos y &lt;summary&gt; para encabezados interactivos."><strong>5.</strong> Elementos interactivos: &lt;details&gt; y &lt;summary&gt;.</div>
+      <div class="tema" data-concepto="Etiquetas de script y enlace para importar JavaScript y CSS externos."><strong>6.</strong> Integración de JavaScript y CSS con &lt;script&gt; y &lt;link&gt;.</div>
+      <div class="tema" data-concepto="Buenas prácticas en accesibilidad y uso correcto de etiquetas para mejorar la experiencia de usuario."><strong>7.</strong> Buenas prácticas y accesibilidad.</div>
+      <div class="tema" data-concepto="Uso correcto de etiquetas para SEO y estructura semántica para buscadores."><strong>8.</strong> SEO y estructura semántica.</div>
+      <div class="tema" data-concepto="Uso de microdatos y etiquetas para mejorar la interpretación de contenido por motores de búsqueda."><strong>9.</strong> Microdatos y datos estructurados.</div>
+      <div class="tema" data-concepto="Elementos para mejorar la experiencia móvil: viewport, diseño responsivo y adaptativo."><strong>10.</strong> Diseño responsivo y móvil.</div>
+    </div>
+
+    <h2>CSS Básico</h2>
+    <div class="lista-temas">
+      <div class="tema" data-concepto="CSS permite dar estilo a los elementos HTML, controlando colores, fuentes, tamaños y posiciones."><strong>1.</strong> Introducción a CSS y cómo aplicarlo.</div>
+      <div class="tema" data-concepto="Selectores básicos en CSS para seleccionar etiquetas, clases e IDs."><strong>2.</strong> Selectores básicos: etiqueta, clase e ID.</div>
+      <div class="tema" data-concepto="Propiedades para colores, fondos, bordes y sombras."><strong>3.</strong> Propiedades de color y fondo.</div>
+      <div class="tema" data-concepto="Modelo de caja: margen, borde, relleno y contenido."><strong>4.</strong> Modelo de caja (box model).</div>
+      <div class="tema" data-concepto="Posicionamiento de elementos: static, relative, absolute y fixed."><strong>5.</strong> Posicionamiento en CSS.</div>
+      <div class="tema" data-concepto="Tipografía en CSS: fuentes, tamaño, estilo y alineación."><strong>6.</strong> Tipografía y texto.</div>
+      <div class="tema" data-concepto="Uso de display para controlar la visualización: block, inline, inline-block y none."><strong>7.</strong> Display y visibilidad.</div>
+      <div class="tema" data-concepto="Pseudoclases para estilos dinámicos como :hover, :focus y :active."><strong>8.</strong> Pseudoclases en CSS.</div>
+      <div class="tema" data-concepto="Unidades relativas y absolutas: px, em, rem, %, vw y vh."><strong>9.</strong> Unidades en CSS.</div>
+      <div class="tema" data-concepto="Agrupar reglas CSS y aplicar estilos específicos a elementos anidados."><strong>10.</strong> Selectores avanzados y agrupación.</div>
+    </div>
+
+    <a href="proyecto4.html" class="boton">← Volver</a>
+  </section>
+
+  <!-- Modal para mostrar concepto -->
+  <div class="modal" id="modalConcepto">
+    <div class="modal-content">
+      <span class="close-modal" id="cerrarModal">&times;</span>
+      <h3>Concepto</h3>
+      <p id="textoConcepto"></p>
+    </div>
+  </div>
+
+  <script>
+    // Seleccionamos todos los temas
+    const temas = document.querySelectorAll('.tema');
+    const modal = document.getElementById('modalConcepto');
+    const textoConcepto = document.getElementById('textoConcepto');
+    const cerrarModal = document.getElementById('cerrarModal');
+
+    temas.forEach(tema => {
+      tema.addEventListener('click', () => {
+        const concepto = tema.getAttribute('data-concepto');
+        textoConcepto.textContent = concepto;
+        modal.style.display = 'flex';
+      });
+    });
+
+    cerrarModal.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    // Cerrar modal si se da click fuera del contenido
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Temas - Semana 02</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff7f5;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('fondo.jpg'); /* ← Reemplaza con tu imagen */
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px) brightness(0.9);
+      opacity: 0.5;
+      z-index: -2;
+    }
+    .navegacion .logo {
+      color: white;
+      padding: 15px;
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      background-color: #FF9A8B;
+      box-shadow: 0 2px 8px rgba(255,154,139,0.4);
+    }
+
+    .contenido {
+      max-width: 960px;
+      margin: 30px auto;
+      padding: 20px 30px;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(255,154,139,0.15);
+      position: relative;
+      z-index: 10;
+    }
+
+    h2 {
+      color: #FF9A8B;
+      font-size: 28px;
+      border-bottom: 3px solid #FF9A8B;
+      padding-bottom: 8px;
+      width: fit-content;
+      margin-bottom: 25px;
+    }
+
+    .lista-temas {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .tema {
+      background-color: #FFE8E0;
+      border-left: 6px solid #FF9A8B;
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(255,154,139,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .tema:hover {
+      background-color: #FF9A8B;
+      color: white;
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(255,154,139,0.5);
+    }
+
+    .tema strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 18px;
+    }
+
+    .boton {
+      display: inline-block;
+      background-color: #FF9A8B;
+      color: white;
+      padding: 12px 28px;
+      text-decoration: none;
+      border-radius: 20px;
+      font-size: 18px;
+      margin: 30px auto 0;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(255,154,139,0.4);
+      transition: background-color 0.3s ease;
+    }
+
+    .boton:hover {
+      background-color: #e47875;
+      box-shadow: 0 5px 15px rgba(228,120,117,0.7);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navegacion">
+      <div class="logo">Temas Aprendidos</div>
+    </nav>
+  </header>
+
+  <section class="contenido">
+    <div class="lista-temas">
+      <div class="tema">
+        <strong>Visual Studio Code</strong>
+        Editor de código fuente liviano, gratuito y multiplataforma. Permite trabajar con HTML, CSS, JS, terminal integrada y extensiones útiles.
+      </div>
+      <div class="tema">
+        <strong>Interfaz de Usuario</strong>
+        Incluye el explorador de archivos, barra de estado, editor, terminal integrada y paleta de comandos.
+      </div>
+      <div class="tema">
+        <strong>Paleta de Comandos</strong>
+        Acceso con Ctrl+Shift+P para ejecutar rápidamente funciones como "crear terminal", "comentar línea", o usar Docker.
+      </div>
+      <div class="tema">
+        <strong>Terminal Integrado</strong>
+        Permite ejecutar scripts, comandos npm, git y más directamente desde VSC.
+      </div>
+      <div class="tema">
+        <strong>Emmet</strong>
+        Herramienta que agiliza la escritura de código HTML/CSS mediante abreviaciones como div>ul>li*3 o .clase.
+      </div>
+      <div class="tema">
+        <strong>Atajos de Teclado</strong>
+        Acciones como comentar líneas, duplicar líneas, abrir archivos o minimizar paneles con combinaciones como Ctrl + / o Ctrl + B.
+      </div>
+      <div class="tema">
+        <strong>Selectores y Pseudo-clases CSS</strong>
+        Aplicación de estilos dinámicos como :hover, :first-child, :nth-child para mejorar la presentación y usabilidad del sitio web.
+      </div>
+    </div>
+
+    <a href="proyecto2.html" class="boton">← Volver</a>
+  </section>
+
+</body>
+</html>

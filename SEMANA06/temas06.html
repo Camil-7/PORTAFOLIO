@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Temas - Semana 06</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff7f5;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('fondo.png'); /* Reemplaza con tu imagen */
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px) brightness(0.9);
+      opacity: 0.5;
+      z-index: -2;
+    }
+
+    .navegacion .logo {
+      color: white;
+      padding: 15px;
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      background-color: #FF9A8B;
+      box-shadow: 0 2px 8px rgba(255,154,139,0.4);
+    }
+
+    .contenido {
+      max-width: 960px;
+      margin: 30px auto;
+      padding: 20px 30px;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(255,154,139,0.15);
+      position: relative;
+      z-index: 10;
+    }
+
+    h2 {
+      color: #FF9A8B;
+      font-size: 26px;
+      border-bottom: 3px solid #FF9A8B;
+      padding-bottom: 6px;
+      margin-top: 30px;
+    }
+
+    .lista-temas {
+      display: flex;
+      flex-wrap: wrap;       /* Permite varias filas */
+      gap: 15px;             /* Espacio entre cuadros */
+    }
+
+    .tema {
+      background-color: #FFE8E0;
+      border-left: 6px solid #FF9A8B;
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(255,154,139,0.2);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      flex: 1 1 calc(30% - 15px); /* Aproximadamente 3 cuadros por fila */
+      box-sizing: border-box;
+      min-width: 220px;           /* Ancho mínimo para que no se comprima */
+    }
+
+    .tema:hover {
+      background-color: #FF9A8B;
+      color: white;
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(255,154,139,0.5);
+    }
+
+    .tema strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 18px;
+    }
+
+    .boton {
+      display: inline-block;
+      background-color: #FF9A8B;
+      color: white;
+      padding: 12px 28px;
+      text-decoration: none;
+      border-radius: 20px;
+      font-size: 18px;
+      margin: 30px auto 0;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(255,154,139,0.4);
+      transition: background-color 0.3s ease;
+    }
+
+    .boton:hover {
+      background-color: #e47875;
+      box-shadow: 0 5px 15px rgba(228,120,117,0.7);
+    }
+
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 12px;
+      max-width: 600px;
+      width: 100%;
+      padding: 25px 30px;
+      box-shadow: 0 5px 25px rgba(255,154,139,0.6);
+      position: relative;
+      color: #333;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    .modal-content h3 {
+      margin-top: 0;
+      color: #FF9A8B;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #FF9A8B;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      user-select: none;
+    }
+
+    .close-modal:hover {
+      color: #e47875;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navegacion">
+      <div class="logo">Temas Aprendidos</div>
+    </nav>
+  </header>
+
+  <section class="contenido">
+
+    <h2>REACT</h2>
+    <div class="lista-temas">
+      <div class="tema" data-concepto="React es una libreria de código de JavaScript para crear inerfaces de usuario."><strong>1.</strong> ¿Que es React?</div>
+      <div class="tema" data-concepto="El ingeniero de Software de Facebook, se utilizo por primera vez en el 2011, y su lanzamiento de la V0.3.0 fue en Julio del 2013"><strong>2.</strong> Historia de React.js</div>
+      <div class="tema" data-concepto="La carpeta node_modules es un directorio esencial en proyectos que usan Node.jjs y npm. Almacena todas las dependencias y paquetes instalados."><strong>3.</strong> Desarrollo con React con CDN o Node JS</div>
+      <div class="tema" data-concepto="Ingresar a la web :https://nodejs.org/es/"><strong>4.</strong> Node JS-Instalación</div>
+    </div>
+
+    <h2>Herramientas de Instalación de React</h2>
+    <div class="lista-temas">
+      <div class="tema" data-concepto="Configura tu ambiente de desarrollo de forma que puedas usar las últimas características de Javascript."><strong>1.</strong> Create-react-app</div>
+      <div class="tema" data-concepto="Vite se define como una herramienta de frontend que te ayudará a crear tus proyectos de forma agnóstica."><strong>2.</strong> Vite</div>
+      <div class="tema" data-concepto="Next.js es un pequeño framework construido sobre React.js que viene a ayudar a reducir esta fatiga."><strong>3.</strong> Next.js</div>
+    </div>
+
+    <h2>Renderizar HTML en React</h2>
+    <div class="lista-temas">
+      <div class="tema" data-concepto="1. React crea un DOM VIRTUAL en la memoria. 2. Comparación con el DOM anterior(Diffing). 3. Reconciliación y actualización del DOM real3. Reconciliación y actualización del DOM real."><strong>1.</strong> ¿Cómo Renderizar el DOM React?</div>
+      <div class="tema" data-concepto="Un componente es una unidad de interfaz o unidad lógica reutilizable bien definifa que permite ofrecer funcionalidades."><strong>2.</strong> Componentes en React</div>
+      <div class="tema" data-concepto="Estructuras condicionales if, else, switch."><strong>3.</strong> Condicionales</div>    </div>
+
+    
+<a href="proyecto6.html" class="boton">← Volver</a>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeModal">&times;</span>
+      <h3>Concepto</h3>
+      <p id="conceptoTexto"></p>
+    </div>
+  </div>
+
+  <script>
+    const temas = document.querySelectorAll('.tema');
+    const modal = document.getElementById('modal');
+    const conceptoTexto = document.getElementById('conceptoTexto');
+    const closeModal = document.getElementById('closeModal');
+
+    temas.forEach(tema => {
+      tema.addEventListener('click', () => {
+        conceptoTexto.textContent = tema.getAttribute('data-concepto');
+        modal.style.display = 'flex';
+      });
+    });
+
+    closeModal.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>

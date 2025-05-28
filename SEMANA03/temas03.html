@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Temas - Semana 03</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff7f5;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('fondo.jpg'); /* ← Reemplaza con tu imagen */
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px) brightness(0.9);
+      opacity: 0.5;
+      z-index: -2;
+    }
+    .navegacion .logo {
+      color: white;
+      padding: 15px;
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      background-color: #FF9A8B;
+      box-shadow: 0 2px 8px rgba(255,154,139,0.4);
+    }
+
+    .contenido {
+      max-width: 960px;
+      margin: 30px auto;
+      padding: 20px 30px;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(255,154,139,0.15);
+      position: relative;
+      z-index: 10;
+    }
+
+    h2 {
+      color: #FF9A8B;
+      font-size: 28px;
+      border-bottom: 3px solid #FF9A8B;
+      padding-bottom: 8px;
+      width: fit-content;
+      margin-bottom: 25px;
+    }
+
+    .lista-temas {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .tema {
+      background-color: #FFE8E0;
+      border-left: 6px solid #FF9A8B;
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(255,154,139,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .tema:hover {
+      background-color: #FF9A8B;
+      color: white;
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(255,154,139,0.5);
+    }
+
+    .tema strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 18px;
+    }
+
+    .tema ul {
+      margin-top: 8px;
+      padding-left: 20px;
+    }
+
+    .tema code {
+      background-color: #ffd6cc;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    .boton {
+      display: inline-block;
+      background-color: #FF9A8B;
+      color: white;
+      padding: 12px 28px;
+      text-decoration: none;
+      border-radius: 20px;
+      font-size: 18px;
+      margin: 30px auto 0;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(255,154,139,0.4);
+      transition: background-color 0.3s ease;
+    }
+
+    .boton:hover {
+      background-color: #e47875;
+      box-shadow: 0 5px 15px rgba(228,120,117,0.7);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navegacion">
+      <div class="logo">Temas Aprendidos</div>
+    </nav>
+  </header>
+
+  <section class="contenido">
+    <div class="lista-temas">
+      <div class="tema">
+        <strong>Emmet</strong>
+        Herramienta que agiliza la escritura de código HTML y CSS mediante abreviaciones y atajos. Permite generar rápidamente estructuras complejas con sintaxis abreviada, como:
+        <ul>
+          <li><code>div&gt;ul&gt;li*3</code>: crea un <code>div</code> con una lista <code>ul</code> que contiene 3 elementos <code>li</code>.</li>
+          <li><code>.clase</code>: genera un <code>div</code> con la clase especificada.</li>
+          <li><code>#id</code>: crea un elemento con un identificador único.</li>
+          <li>Uso de operadores para anidar (<code>&gt;</code>), hermanos (<code>+</code>) y multiplicar (<code>*</code>).</li>
+        </ul>
+      </div>
+      <div class="tema">
+               <ul>
+          <li>Expansión instantánea de abreviaciones con la tecla <code>Tab</code>.</li>
+          <li>Atajos para insertar rápidamente propiedades CSS, como <code>m10</code> para <code>margin: 10px;</code>.</li>
+          <li>Soporte para personalización y snippets propios.</li>
+          <li>Gran compatibilidad con editores como Visual Studio Code.</li>
+        </ul>
+      </div>
+      <div class="tema">
+        <strong>Temas adicionales sobre Emmet:</strong>
+      </div>
+      <div class="tema">
+               <ul>
+          <li><code>${n}</code>: Uso de variables numéricas para nombrar elementos automáticamente. Por ejemplo, <code>ul&gt;li.item$*5</code> genera 5 <code>li</code> con clases <code>item1</code>, <code>item2</code>, etc.</li>
+          <li><code>{texto}</code>: Inserta texto literal dentro del elemento. Ejemplo: <code>a{Enlace}</code> crea un enlace con el texto "Enlace".</li>
+          <li>Abreviaciones para atributos: <code>input:email</code> genera un input con atributo <code>type="email"</code>.</li>
+          <li>Soporte para atributos personalizados: <code>div[role="main" aria-label="contenido"]</code> para accesibilidad.</li>
+          <li>Combinación con CSS: abreviaciones para propiedades y valores rápidos, como <code>p10</code> para <code>padding: 10px;</code>, <code>bgc#333</code> para <code>background-color: #333;</code>.</li>
+          <li>Multiplicación con contenido variable: <code>li.item$*3{Ítem $}</code> genera tres elementos con texto numerado automáticamente.</li>
+          <li>Emmet también soporta abreviaciones para SVG, facilitando la creación rápida de gráficos vectoriales.</li>
+          <li>Permite anidar abreviaciones complejas para estructuras HTML altamente anidadas en una sola línea.</li>
+        </ul>
+      </div>
+    </div>
+
+    <a href="proyecto3.html" class="boton">← Volver</a>
+  </section>
+
+</body>
+</html>

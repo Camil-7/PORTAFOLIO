@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Temas Aprendidos - Semana 01</title>
+  <link rel="stylesheet" href="estilos01.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff7f5;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('fondo.jpg'); /* ← Reemplaza con tu imagen */
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px) brightness(0.9);
+      opacity: 0.5;
+      z-index: -2;
+    }
+
+    .navegacion .logo {
+      color: white;
+      padding: 15px;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(255,154,139,0.4);
+    }
+
+    .contenido {
+      max-width: 960px;
+      margin: 30px auto;
+      padding: 20px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      align-items: flex-start;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(255,154,139,0.15);
+      position: relative;
+      z-index: 2;
+    }
+
+    .bloque {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .bloque h3 {
+      color: #FF9A8B;
+      text-align: left;
+      margin-bottom: 12px;
+      font-size: 30px;
+      font-weight: 700;
+      border-bottom: 3px solid #FF9A8B;
+      padding-bottom: 6px;
+      width: fit-content;
+    }
+
+    .contenido-flex {
+      display: flex;
+      gap: 50px;
+      align-items: stretch;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+    }
+
+    .tarjetas-temas,
+    .col-circulos {
+      width: 320px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .tarjeta {
+      position: relative;
+      background-color: #FFE8E0;
+      border: 2px solid #FF9A8B;
+      border-radius: 25px;
+      padding: 18px 25px;
+      font-weight: 700;
+      color: #333;
+      cursor: pointer;
+      transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+      max-width: 320px;
+      box-shadow: 0 3px 7px rgba(255,154,139,0.25);
+      z-index: 3;
+    }
+
+    .tarjeta:hover {
+      background-color: #FF9A8B;
+      color: white;
+      box-shadow: 0 5px 15px rgba(255,154,139,0.6);
+      transform: translateY(-5px) scale(1.05);
+    }
+
+    .tarjeta .tooltip {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 105%;
+      transform: translateY(-50%);
+      width: 280px;
+      background-color: #FFF;
+      color: #333;
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      font-weight: normal;
+      font-size: 16px;
+      text-align: left;
+      z-index: 9999;
+    }
+
+    .tarjeta:hover .tooltip {
+      display: block;
+    }
+
+    .col-circulos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 25px;
+      justify-items: center;
+      align-items: center;
+      width: 320px;
+      z-index: 1;
+    }
+
+    .circulo {
+      background: linear-gradient(135deg, #FF9A8B, #F7C5D1);
+      color: white;
+      border-radius: 50%;
+      width: 160px;
+      height: 160px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      font-weight: 700;
+      box-shadow: 0 6px 15px rgba(255, 154, 139, 0.5);
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+      cursor: pointer;
+      animation: floatUpDown 4s ease-in-out infinite;
+    }
+
+    .circulo:hover {
+      animation: bounce 0.6s;
+      transform: scale(1.12);
+      box-shadow: 0 8px 20px rgba(255,154,139,0.7);
+    }
+
+    .circulo .tema {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .circulo .concepto {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.3;
+      padding: 0 6px;
+    }
+
+    .boton {
+      display: inline-block;
+      background-color: #FF9A8B;
+      color: white;
+      padding: 12px 30px;
+      text-decoration: none;
+      border-radius: 20px;
+      font-size: 18px;
+      margin: 40px auto 10px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(255,154,139,0.5);
+      transition: background-color 0.3s ease;
+    }
+
+    .boton:hover {
+      background-color: #e47875;
+      box-shadow: 0 5px 15px rgba(228,120,117,0.7);
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes floatUpDown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .particulas {
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .particula {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,154,139,0.8), rgba(255,154,139,0));
+      opacity: 0.7;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+
+    .particula:nth-child(1) { width: 10px; height: 10px; top: 10%; left: 15%; animation-name: moverParticula1; animation-duration: 6s; }
+    .particula:nth-child(2) { width: 8px; height: 8px; top: 40%; left: 50%; animation-name: moverParticula2; animation-duration: 8s; }
+    .particula:nth-child(3) { width: 12px; height: 12px; top: 80%; left: 30%; animation-name: moverParticula3; animation-duration: 7s; }
+    .particula:nth-child(4) { width: 6px; height: 6px; top: 60%; left: 70%; animation-name: moverParticula4; animation-duration: 5s; }
+    .particula:nth-child(5) { width: 9px; height: 9px; top: 30%; left: 80%; animation-name: moverParticula5; animation-duration: 9s; }
+
+    @keyframes moverParticula1 { 0%, 100% { transform: translate(0, 0); opacity: 0.7; } 50% { transform: translate(20px, -15px); opacity: 0.4; } }
+    @keyframes moverParticula2 { 0%, 100% { transform: translate(0, 0); opacity: 0.7; } 50% { transform: translate(-15px, 20px); opacity: 0.5; } }
+    @keyframes moverParticula3 { 0%, 100% { transform: translate(0, 0); opacity: 0.7; } 50% { transform: translate(25px, 15px); opacity: 0.3; } }
+    @keyframes moverParticula4 { 0%, 100% { transform: translate(0, 0); opacity: 0.7; } 50% { transform: translate(-20px, -10px); opacity: 0.6; } }
+    @keyframes moverParticula5 { 0%, 100% { transform: translate(0, 0); opacity: 0.7; } 50% { transform: translate(15px, -20px); opacity: 0.4; } }
+  </style>
+</head>
+<body>
+  <div class="particulas">
+    <div class="particula"></div>
+    <div class="particula"></div>
+    <div class="particula"></div>
+    <div class="particula"></div>
+    <div class="particula"></div>
+  </div>
+
+  <header>
+    <nav class="navegacion">
+      <div class="logo">Temas Aprendidos</div>
+    </nav>
+  </header>
+
+  <section class="contenido">
+    <!-- Bloque 1 -->
+    <div class="bloque">
+      <h3>Temas Generales</h3>
+      <div class="contenido-flex">
+        <div class="tarjetas-temas">
+          <div class="tarjeta">
+            <span class="titulo">Fundamentos de la Tecnología Web</span>
+            <div class="tooltip">Dos tecnologías de desarrollo entre software nativo y web.</div>
+          </div>
+          <div class="tarjeta">
+            <span class="titulo">Open Web Platform</span>
+            <div class="tooltip">Basada en principios de apertura, libertad y colaboración.</div>
+          </div>
+          <div class="tarjeta">
+            <span class="titulo">Estándares Web</span>
+            <div class="tooltip">HTML, CSS, JS, HTTP, XML, accesibilidad y APIs.</div>
+          </div>
+          <div class="tarjeta">
+            <span class="titulo">JavaScript</span>
+            <div class="tooltip">Lenguaje que permite interactividad y dinamismo en las páginas web.</div>
+          </div>
+        </div>
+
+        <div class="col-circulos">
+          <div class="circulo"><div class="tema">HTML5</div><div class="concepto">Estructura y contenido de páginas web.</div></div>
+          <div class="circulo"><div class="tema">CSS3</div><div class="concepto">Diseño visual y estilos para mejorar la experiencia.</div></div>
+          <div class="circulo"><div class="tema">JavaScript</div><div class="concepto">Interactividad y dinamismo en la web.</div></div>
+          <div class="circulo"><div class="tema">APIs Web</div><div class="concepto">Integración de servicios y funcionalidades externas.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bloque 2 -->
+    <div class="bloque">
+      <h3>Protocolos y Accesibilidad</h3>
+      <div class="contenido-flex">
+        <div class="tarjetas-temas">
+          <div class="tarjeta">
+            <span class="titulo">Funcionamiento del DNS</span>
+            <div class="tooltip">Cómo los nombres de dominio se traducen a direcciones IP.</div>
+          </div>
+          <div class="tarjeta">
+            <span class="titulo">HTTP y HTTPS</span>
+            <div class="tooltip">Protocolos de comunicación en la web para transmitir datos.</div>
+          </div>
+          <div class="tarjeta">
+            <span class="titulo">Responsive Design</span>
+            <div class="tooltip">Diseño adaptable a diferentes tamaños de pantalla.</div>
+          </div>
+          <div class="tarjeta">
+            <span class="titulo">Accesibilidad Web</span>
+            <div class="tooltip">Prácticas para que los sitios sean utilizables por todos, incluyendo personas con discapacidad.</div>
+          </div>
+        </div>
+
+        <div class="col-circulos">
+          <div class="circulo"><div class="tema">DNS</div><div class="concepto">Traducción de dominios a direcciones IP.</div></div>
+          <div class="circulo"><div class="tema">HTTP/HTTPS</div><div class="concepto">Protocolos para comunicación segura y eficiente.</div></div>
+          <div class="circulo"><div class="tema">Accesibilidad</div><div class="concepto">Hacer la web usable para todos.</div></div>
+          <div class="circulo"><div class="tema">Responsive</div><div class="concepto">Adaptabilidad en diferentes dispositivos.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <a href="proyecto1.html" class="boton">← Volver</a>
+  </section>
+</body>
+</html>
