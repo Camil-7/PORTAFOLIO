@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Artículo - Serenity AI</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff7f5;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-image: url('fondo.png');
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px) brightness(0.9);
+      opacity: 0.4;
+      z-index: -2;
+    }
+
+    .navegacion .logo {
+      background-color: #FF9A8B;
+      color: white;
+      padding: 15px;
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(255,154,139,0.4);
+    }
+
+    .contenido {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 30px;
+      background-color: #ffffffee;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(255,154,139,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      color: #FF9A8B;
+      border-bottom: 2px solid #FF9A8B;
+      padding-bottom: 8px;
+      margin-bottom: 30px;
+    }
+
+    .grid-temas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background-color: #FFE8E0;
+      border: 2px solid #FF9A8B;
+      border-radius: 50%;
+      height: 260px;
+      width: 260px;
+      padding: 20px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 10px rgba(255,154,139,0.2);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .card:hover {
+      background-color: #FF9A8B;
+      color: white;
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(255,154,139,0.4);
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #FF4F4F;
+      margin-bottom: 10px;
+    }
+
+    .card:hover .card-title {
+      color: white;
+    }
+
+    .boton {
+      display: block;
+      background-color: #FF9A8B;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 20px;
+      font-size: 18px;
+      text-decoration: none;
+      text-align: center;
+      margin: 40px auto 0;
+      box-shadow: 0 3px 10px rgba(255,154,139,0.4);
+      width: fit-content;
+    }
+
+    .boton:hover {
+      background-color: #e47875;
+    }
+
+    /* MODAL */
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 5px 25px rgba(255,154,139,0.6);
+      position: relative;
+    }
+
+    .modal-content h3 {
+      margin-top: 0;
+      color: #FF9A8B;
+    }
+
+    .modal-content p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+      white-space: pre-wrap;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #FF9A8B;
+      cursor: pointer;
+    }
+
+    .close-modal:hover {
+      color: #e47875;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navegacion">
+      <div class="logo">Artículo Científico - Serenity</div>
+    </nav>
+  </header>
+
+  <section class="contenido">
+    <h2>Temas - Serenity AI - Cyberbully Checker</h2>
+    <div class="grid-temas">
+
+      <!-- Concepto Principal -->
+      <div class="card" data-title="Artículo de Investigación: Serenity" data-text="El artículo presenta Serenity, una aplicación de chat que detecta ciberacoso en tiempo real usando inteligencia artificial. Utiliza la API Perspective de Google para analizar mensajes mientras se escriben y alerta al usuario si detecta lenguaje dañino. A diferencia de métodos antiguos, este sistema es más preciso y permite intervenir antes de que ocurra el daño, ayudando a crear un entorno digital más seguro para adolescentes y usuarios vulnerables.">
+        <div class="card-title">Artículo de Investigación: Serenity</div>
+      </div>
+
+      <!-- Aplicación -->
+      <div class="card" data-title="Aplicación de Serenity" data-text="✔️ Serenity utiliza la API Perspective de Google para analizar mensajes en tiempo real, ofreciendo evaluaciones rápidas de toxicidad.
+✔️ Procesamiento rápido: devuelve resultados en menos de 1 segundo, ideal para entornos de chat en vivo.
+✔️ Esta velocidad permite intervenciones inmediatas, brindando al usuario la oportunidad de reconsiderar el envío de mensajes potencialmente dañinos.
+✔️ Ventaja clave: Integración fluida en aplicaciones de mensajería.">
+        <div class="card-title">Aplicación de Serenity</div>
+      </div>
+
+      <!-- Impacto -->
+      <div class="card" data-title="Impacto del Cyberbully Checker “Serenity”" data-text="✅ Detección en tiempo real: Utiliza la API Perspective de Google para identificar mensajes ofensivos de forma inmediata.
+✅ Adaptable al lenguaje actual: Supera las limitaciones de los métodos tradicionales basados en diccionarios fijos.
+✅ Fomenta la reflexión: Alerta al usuario antes de enviar contenido tóxico, promoviendo el cambio de comportamiento.
+✅ Privacidad respetada: Ofrece control al usuario sobre la sensibilidad del sistema y permite supervisión sin invadir la privacidad.
+✅ Impacto positivo: Crea entornos de comunicación más seguros, especialmente para adolescentes y personas vulnerables.">
+        <div class="card-title">Impacto del Cyberbully Checker “Serenity”</div>
+      </div>
+
+    </div>
+
+    <a href="proyecto12.html" class="boton">← Volver</a>
+  </section>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeModal">&times;</span>
+      <h3 id="modal-title"></h3>
+      <p id="modal-text"></p>
+    </div>
+  </div>
+
+  <script>
+    const cards = document.querySelectorAll('.card');
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalText = document.getElementById('modal-text');
+    const closeModal = document.getElementById('closeModal');
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        modalTitle.textContent = card.getAttribute('data-title');
+        modalText.textContent = card.getAttribute('data-text');
+        modal.style.display = 'flex';
+      });
+    });
+
+    closeModal.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>

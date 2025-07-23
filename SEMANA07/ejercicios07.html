@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Ejercicios - Semana 07</title>
+  <title>Ejercicios - Hooks en React</title>
   <style>
     body {
       margin: 0;
@@ -134,58 +134,76 @@
 
   <header>
     <nav class="navegacion">
-      <div class="logo">Ejercicios Resueltos</div>
+      <div class="logo">Ejercicios Hooks React</div>
     </nav>
   </header>
 
   <section class="contenido">
-    <h3>Ejercicios Prácticos - Semana 07</h3>
-    <div class="tarjeta">
-      <div class="titulo">Creación de un Proyecto en React</div>
-      <div class="descripcion"></div>
-      <pre><code>Create React App</code></pre>
-      <pre><code>Vite</code></pre>
-      <pre><code>Next.js</code></pre>
-    </div>
-    </div>
-    </div>
+    <h3>Ejercicios - Uso de Hooks en React</h3>
 
     <div class="tarjeta">
-      <div class="titulo">Jsx - JavaScript eXtensible</div>
-      <div class="descripcion"></div>
-      <pre><code>const element = <h1>Hola, Mundo! </h1></code></pre>
+      <div class="titulo">useState - Contador simple</div>
+      <div class="descripcion">Hook que permite manejar estados en componentes funcionales.</div>
+      <pre><code>import React, { useState } from 'react';
+
+function Contador() {
+  const [contador, setContador] = useState(0);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Contador: {contador}&lt;/p&gt;
+      &lt;button onClick={() => setContador(contador + 1)}&gt;Incrementar&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
     </div>
 
     <div class="tarjeta">
-      <div class="titulo">TypeScript</div>
-      <div class="descripcion"></div>
-      <pre><code>const usuario:string = 'Jaime'
-const myId:string = 'titulo'</code></pre>
+      <div class="titulo">useEffect - Efecto secundario</div>
+      <div class="descripcion">Hook que ejecuta funciones después de renderizar el componente.</div>
+      <pre><code>import React, { useEffect } from 'react';
+
+function Efecto() {
+  useEffect(() => {
+    console.log('Componente montado');
+  }, []);
+
+  return &lt;p&gt;Mira la consola del navegador&lt;/p&gt;;
+}</code></pre>
     </div>
 
-        <div class="tarjeta">
-      <div class="titulo">Diseñar Componentes en React</div>
-      <div class="descripcion"></div>
-      <pre><code>Hay muchas formas de diseñar un componente en React con CSS o una librería CSS. Con
-CSS hay tres formas de hacerlo:
-➢ hojas de estilo CSS
-➢ Módulos CSS
-➢ estilo en línea</code></pre>
+    <div class="tarjeta">
+      <div class="titulo">useRef - Referencia a un input</div>
+      <div class="descripcion">Hook que mantiene valores mutables sin causar re-renderizados.</div>
+      <pre><code>import React, { useRef } from 'react';
+
+function Referencia() {
+  const inputRef = useRef();
+
+  const enfocar = () => {
+    inputRef.current.focus();
+  };
+
+  return (
+    &lt;div&gt;
+      &lt;input ref={inputRef} type="text" /&gt;
+      &lt;button onClick={enfocar}&gt;Enfocar&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
     </div>
 
-            <div class="tarjeta">
-      <div class="titulo">Librería tailiwind CSS en React</div>
-      <div class="descripcion"></div>
-      <pre><code>Nota: debe estar en la carpeta del proyecto Vite. El comando npx init genera archivos tailwind.config.js como
-postcss.config.js
-</code></pre>
+    <div class="tarjeta">
+      <div class="titulo">useContext - Contexto global</div>
+      <div class="descripcion">Hook que accede a valores globales definidos con React Context.</div>
+      <pre><code>const UsuarioContext = React.createContext();
+
+function MostrarUsuario() {
+  const usuario = React.useContext(UsuarioContext);
+  return &lt;div&gt;Usuario: {usuario}&lt;/div&gt;;
+}</code></pre>
     </div>
 
-                <div class="tarjeta">
-      <div class="titulo">Props y Children de Componentes</div>
-      <div class="descripcion"></div>
-      <pre><code>Los props son definidos como uno o más atributos en un componente</code></pre>
-    </div>
     <a href="proyecto7.html" class="boton">← Volver</a>
   </section>
 </body>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Desarrollo Web Backend - Java Spring</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff7f5;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-image: url('fondo.png');
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px) brightness(0.9);
+      opacity: 0.4;
+      z-index: -2;
+    }
+
+    .navegacion .logo {
+      background-color: #FF9A8B;
+      color: white;
+      padding: 15px;
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(255,154,139,0.4);
+    }
+
+    .contenido {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 30px;
+      background-color: #ffffffee;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(255,154,139,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      color: #FF9A8B;
+      border-bottom: 2px solid #FF9A8B;
+      padding-bottom: 8px;
+      margin-bottom: 30px;
+    }
+
+    .grid-temas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background-color: #FFE8E0;
+      border: 2px solid #FF9A8B;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 3px 10px rgba(255,154,139,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      background-color: #FF9A8B;
+      color: white;
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(255,154,139,0.4);
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #FF4F4F;
+      margin-bottom: 10px;
+    }
+
+    .card:hover .card-title {
+      color: white;
+    }
+
+    .card-text {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    .card:hover .card-text {
+      color: #fff;
+    }
+
+    .boton {
+      display: block;
+      background-color: #FF9A8B;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 20px;
+      font-size: 18px;
+      text-decoration: none;
+      text-align: center;
+      margin: 40px auto 0;
+      box-shadow: 0 3px 10px rgba(255,154,139,0.4);
+      width: fit-content;
+    }
+
+    .boton:hover {
+      background-color: #e47875;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navegacion">
+      <div class="logo">Desarrollo Web Backend - Java & Spring</div>
+    </nav>
+  </header>
+
+  <section class="contenido">
+    <h2>Temas Clave - Java Spring Framework</h2>
+    <div class="grid-temas">
+      
+      <div class="card">
+        <div class="card-title">Arquitectura MVC</div>
+        <div class="card-text">MVC: Separación de lógica, vista y datos con Servlet, JSP y Beans.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">JSP (Jakarta Server Pages)</div>
+        <div class="card-text">Java Server Pages permite crear contenido dinámico usando Java en el servidor.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Apache Tomcat</div>
+        <div class="card-text">Tomcat: Servidor web para ejecutar servlets y JSPs con estructura por carpetas.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Jakarta EE</div>
+        <div class="card-text">Contenedor ligero que permite ejecutar aplicaciones web. Soporta múltiples versiones.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Spring Framework</div>
+        <div class="card-text">Framework Java para construir aplicaciones empresariales. Control por inversión (IoC).</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Spring IoC & Beans</div>
+        <div class="card-text">Inyección de dependencias para desacoplar componentes usando Beans.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Spring Boot</div>
+        <div class="card-text">Spring Boot permite crear proyectos de forma rápida con configuración automática.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Spring Data JPA</div>
+        <div class="card-text">Spring Data facilita acceso a datos desde bases relacionales con JPA.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Hibernate ORM</div>
+        <div class="card-text">Hibernate gestiona objetos Java y los mapea a tablas de base de datos.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Maven</div>
+        <div class="card-text">Maven gestiona dependencias, compilación, pruebas y empaquetado del proyecto Java.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Archivo pom.xml</div>
+        <div class="card-text">Archivo pom.xml define configuración y dependencias del proyecto en Maven.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Configuración con XML</div>
+        <div class="card-text">Inyección de dependencias usando XML y anotaciones. Permite modularizar mejor.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Controladores REST</div>
+        <div class="card-text">Controladores REST en Spring usan @RestController y devuelven JSON.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Anotaciones JPA</div>
+        <div class="card-text">JPA facilita la gestión de persistencia con anotaciones y repositorios.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Spring Container</div>
+        <div class="card-text">BeansFactory y ApplicationContext permiten manejar objetos dentro de Spring.</div>
+      </div>
+
+    </div>
+
+    <a href="proyecto9.html" class="boton">← Volver</a>
+  </section>
+
+</body>
+</html>

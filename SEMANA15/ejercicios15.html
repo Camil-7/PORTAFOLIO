@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ejercicios - Proyecto Python Flask</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff7f5;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-image: url('fondo.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px) brightness(0.9);
+      opacity: 0.45;
+      z-index: -2;
+    }
+
+    .navegacion .logo {
+      color: white;
+      padding: 18px;
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+      background-color: #FF9A8B;
+      box-shadow: 0 2px 10px rgba(255,154,139,0.35);
+    }
+
+    .contenido {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #fffdfd;
+      border-radius: 18px;
+      box-shadow: 0 6px 18px rgba(255,154,139,0.2);
+      position: relative;
+      z-index: 10;
+    }
+
+    h3 {
+      color: #FF7A73;
+      font-size: 28px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .tarjeta {
+      background: linear-gradient(135deg, #FFE8E0, #fff5f2);
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(255,154,139,0.15);
+      margin-bottom: 35px;
+      border-left: 8px solid #FF9A8B;
+    }
+
+    .titulo {
+      font-size: 21px;
+      font-weight: bold;
+      margin-bottom: 12px;
+      color: #E45B5B;
+    }
+
+    .descripcion {
+      font-size: 16px;
+      margin-bottom: 12px;
+      color: #444;
+    }
+
+    pre {
+      background-color: #fff0eb;
+      padding: 15px;
+      border-radius: 12px;
+      overflow-x: auto;
+      font-size: 15px;
+      line-height: 1.5;
+      border: 1px solid #ffd8d1;
+    }
+
+    code {
+      font-family: Consolas, monospace;
+      color: #333;
+    }
+
+    .boton {
+      display: block;
+      background-color: #FF9A8B;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 24px;
+      font-size: 18px;
+      text-decoration: none;
+      text-align: center;
+      margin: 40px auto 0;
+      box-shadow: 0 4px 12px rgba(255,154,139,0.4);
+      width: fit-content;
+      transition: background-color 0.3s ease;
+    }
+
+    .boton:hover {
+      background-color: #e96c67;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navegacion">
+      <div class="logo">Ejercicios Semana 14 - Proyecto Python Flask</div>
+    </nav>
+  </header>
+
+  <section class="contenido">
+    <h3>🧪 Ejercicios: Desarrollo Backend con Python y Flask</h3>
+
+    <div class="tarjeta">
+      <div class="titulo">1. Crear clases en Python</div>
+      <div class="descripcion">Definir clases <code>Persona</code> y <code>Estudiante</code> usando herencia y métodos sobrescritos.</div>
+      <pre><code>class Persona:
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = edad
+
+    def presentarse(self):
+        return f"Hola, soy {self.nombre} y tengo {self.edad} años."
+
+class Estudiante(Persona):
+    def __init__(self, nombre, edad, carrera):
+        super().__init__(nombre, edad)
+        self.carrera = carrera
+
+    def estudiar(self):
+        return f"{self.nombre} está estudiando {self.carrera}"
+
+    def presentarse(self):
+        return f"Hola, soy {self.nombre}, tengo {self.edad} años y estudio {self.carrera}"
+</code></pre>
+    </div>
+
+    <div class="tarjeta">
+      <div class="titulo">2. Crear aplicación web en Flask</div>
+      <div class="descripcion">Estructura básica de Flask y conexión con MySQL usando PyMySQL.</div>
+      <pre><code># app.py
+from flask import Flask, render_template, request, redirect
+from conexion import obtener_conexion
+
+app = Flask(__name__)
+
+@app.route('/')
+def formulario():
+    return render_template('formulario.html')
+
+@app.route('/guardar', methods=['POST'])
+def guardar():
+    nombre = request.form['nombre']
+    direccion = request.form['direccion']
+    ciudad = request.form['ciudad']
+
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("INSERT INTO estudiantes(nomEstudiante, dirEstudiante, ciuEstudiante) VALUES (%s, %s, %s)", 
+                      (nombre, direccion, ciudad))
+    conexion.commit()
+    conexion.close()
+    return redirect('/')
+</code></pre>
+    </div>
+
+    <div class="tarjeta">
+      <div class="titulo">3. Conexión a base de datos</div>
+      <div class="descripcion">Archivo <code>conexion.py</code> para establecer conexión con MySQL.</div>
+      <pre><code>import pymysql
+
+def obtener_conexion():
+    return pymysql.connect(
+        host='localhost',
+        user='root',
+        password='tu_contraseña',
+        db='escuela',
+        cursorclass=pymysql.cursors.DictCursor
+    )
+</code></pre>
+    </div>
+
+    <div class="tarjeta">
+      <div class="titulo">4. Crear base de datos y tabla en MySQL</div>
+      <div class="descripcion">Sentencias SQL necesarias:</div>
+      <pre><code>CREATE DATABASE escuela;
+USE escuela;
+CREATE TABLE estudiantes (
+  IdEstudiante INT PRIMARY KEY AUTO_INCREMENT,
+  nomEstudiante VARCHAR(100),
+  dirEstudiante VARCHAR(150),
+  ciuEstudiante VARCHAR(100)
+);
+</code></pre>
+    </div>
+
+    <div class="tarjeta">
+      <div class="titulo">5. Crear plantilla HTML</div>
+      <div class="descripcion">Vista <code>formulario.html</code> ubicada en la carpeta <code>templates/</code>:</div>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Registro de Estudiantes&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Agregar Estudiante&lt;/h1&gt;
+  &lt;form action="/guardar" method="post"&gt;
+    &lt;label&gt;Nombre:&lt;/label&gt;&lt;br&gt;
+    &lt;input type="text" name="nombre"&gt;&lt;br&gt;
+    &lt;label&gt;Dirección:&lt;/label&gt;&lt;br&gt;
+    &lt;input type="text" name="direccion"&gt;&lt;br&gt;
+    &lt;label&gt;Ciudad:&lt;/label&gt;&lt;br&gt;
+    &lt;input type="text" name="ciudad"&gt;&lt;br&gt;&lt;br&gt;
+    &lt;input type="submit" value="Guardar"&gt;
+  &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <a href="proyecto15.html" class="boton">← Volver</a>
+  </section>
+</body>
+</html>

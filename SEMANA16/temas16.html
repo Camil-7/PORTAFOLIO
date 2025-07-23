@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sistema Inteligente con Python - Temas</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff7f5;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('fondo.png');
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px) brightness(0.9);
+      opacity: 0.4;
+      z-index: -2;
+    }
+
+    .navegacion .logo {
+      background-color: #FF9A8B;
+      color: white;
+      padding: 15px;
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(255,154,139,0.4);
+    }
+
+    .contenido {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 30px;
+      background-color: #ffffffee;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(255,154,139,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      color: #FF9A8B;
+      border-bottom: 2px solid #FF9A8B;
+      padding-bottom: 8px;
+      margin-bottom: 30px;
+    }
+
+    .grid-temas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: linear-gradient(135deg, #ffe0dc, #fff7f5);
+      border: 2px solid #FF9A8B;
+      border-radius: 20px;
+      padding: 25px 20px;
+      box-shadow: 0 6px 18px rgba(255, 154, 139, 0.25);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255, 154, 139, 0.4);
+      background: linear-gradient(135deg, #FF9A8B, #ffc8c0);
+      color: white;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: #FF4F4F;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card p {
+      font-size: 14.5px;
+      line-height: 1.5;
+      color: #333;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card:hover h3,
+    .card:hover p {
+      color: white;
+    }
+
+    .card::before {
+      content: "🤖";
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 48px;
+      opacity: 0.08;
+      z-index: 1;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover::before {
+      transform: scale(1.2) rotate(5deg);
+    }
+
+    .boton {
+      display: block;
+      background-color: #FF9A8B;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 20px;
+      font-size: 18px;
+      text-decoration: none;
+      text-align: center;
+      margin: 40px auto 0;
+      width: fit-content;
+      box-shadow: 0 3px 10px rgba(255,154,139,0.4);
+    }
+
+    .boton:hover {
+      background-color: #e47875;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navegacion">
+      <div class="logo">Semana 16 - Sistema Inteligente Serenity AI</div>
+    </nav>
+  </header>
+
+  <section class="contenido">
+    <h2>Temas Aprendidos - Serenity AI con Python y React</h2>
+    <div class="grid-temas">
+
+      <div class="card">
+        <h3>Autenticación con JWT</h3>
+        <p>Registro, login seguro y generación de tokens usando Flask-JWT-Extended para proteger rutas sensibles.</p>
+      </div>
+
+      <div class="card">
+        <h3>Gestión de Usuarios</h3>
+        <p>Creación, validación y actualización de perfiles con campos como nombre visible y nivel de tolerancia.</p>
+      </div>
+
+      <div class="card">
+        <h3>Backend con Flask</h3>
+        <p>Desarrollo de API RESTful con Flask, conexión con MySQL y control de errores con respuestas JSON claras.</p>
+      </div>
+
+      <div class="card">
+        <h3>Frontend con React</h3>
+        <p>Componentes dinámicos, rutas protegidas, formularios controlados y modo oscuro con React y React Router.</p>
+      </div>
+
+      <div class="card">
+        <h3>Análisis de Toxicidad</h3>
+        <p>Evaluación de textos con IA para detectar lenguaje ofensivo o nocivo, simulando un sistema de moderación.</p>
+      </div>
+
+      <div class="card">
+        <h3>Estadísticas Inteligentes</h3>
+        <p>Dashboards con gráficas de torta (Recharts) y exportación a PDF y Excel usando `html2pdf.js` y `xlsx`.</p>
+      </div>
+
+      <div class="card">
+        <h3>Base de Datos MySQL</h3>
+        <p>Tablas relacionales como usuarios, mensajes y estadísticas, con relaciones, claves foráneas y datos históricos.</p>
+      </div>
+
+      <div class="card">
+        <h3>Control de Acceso</h3>
+        <p>Middleware que asegura que solo usuarios autenticados accedan a endpoints protegidos como `/profile`.</p>
+      </div>
+
+      <div class="card">
+        <h3>Exportación de Datos</h3>
+        <p>Generación de archivos PDF y Excel para el historial de chats, configuraciones y métricas del sistema.</p>
+      </div>
+
+      <div class="card">
+        <h3>Deploy Local</h3>
+        <p>Servidor local en `127.0.0.1` con XAMPP (MySQL), backend Flask y entorno virtual con dependencias controladas.</p>
+      </div>
+
+      <div class="card">
+        <h3>Modo Oscuro React</h3>
+        <p>Diseño adaptativo con estilos dinámicos para mejorar la accesibilidad y experiencia del usuario.</p>
+      </div>
+
+      <div class="card">
+        <h3>Guía de Instalación</h3>
+        <p>Instrucciones paso a paso para clonar, instalar dependencias, crear la base de datos y ejecutar el sistema completo.</p>
+      </div>
+
+    </div>
+
+    <a href="proyecto16.html" class="boton">← Volver</a>
+  </section>
+
+</body>
+</html>

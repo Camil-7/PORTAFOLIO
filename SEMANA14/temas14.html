@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Semana 14 - Backend con Python y Flask</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff7f5;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-image: url('fondo.png');
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px) brightness(0.9);
+      opacity: 0.4;
+      z-index: -2;
+    }
+
+    .navegacion .logo {
+      background-color: #FF9A8B;
+      color: white;
+      padding: 15px;
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(255,154,139,0.4);
+    }
+
+    .contenido {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 30px;
+      background-color: #ffffffee;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(255,154,139,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      color: #FF9A8B;
+      border-bottom: 2px solid #FF9A8B;
+      padding-bottom: 8px;
+      margin-bottom: 30px;
+    }
+
+    .grid-temas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #FFE8E0;
+      border: 2px solid #FF9A8B;
+      border-radius: 16px;
+      padding: 15px;
+      box-shadow: 0 3px 10px rgba(255,154,139,0.2);
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      background-color: #FF9A8B;
+      color: white;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: #FF4F4F;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .card:hover h3,
+    .card:hover p {
+      color: white;
+    }
+
+    .boton {
+      display: block;
+      background-color: #FF9A8B;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 20px;
+      font-size: 18px;
+      text-decoration: none;
+      text-align: center;
+      margin: 40px auto 0;
+      width: fit-content;
+      box-shadow: 0 3px 10px rgba(255,154,139,0.4);
+    }
+
+    .boton:hover {
+      background-color: #e47875;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navegacion">
+      <div class="logo">Semana 14 - Desarrollo Backend con Python y Flask</div>
+    </nav>
+  </header>
+
+  <section class="contenido">
+    <h2>Temas Aprendidos - Semana 14</h2>
+    <div class="grid-temas">
+
+      <div class="card">
+        <h3>Python y su Historia</h3>
+        <p>Lenguaje interpretado, multiparadigma y de tipado dinámico. Creado por Guido van Rossum. Evolución desde Python 1.x hasta 3.x.</p>
+      </div>
+
+      <div class="card">
+        <h3>Ambientes y Usos de Python</h3>
+        <p>Utilizado en educación, ciencia de datos, desarrollo web, automatización, IoT, entre otros.</p>
+      </div>
+
+      <div class="card">
+        <h3>Apache HTTP Server</h3>
+        <p>Servidor web que entrega contenido HTML. Apache Lounge ofrece versiones portables para Windows.</p>
+      </div>
+
+      <div class="card">
+        <h3>MOD_WSGI</h3>
+        <p>Permite conectar aplicaciones Python (como Flask o Django) con Apache a través de WSGI.</p>
+      </div>
+
+      <div class="card">
+        <h3>Instalación y uso de Flask</h3>
+        <p>Microframework para aplicaciones web. Uso de decoradores, rutas, plantillas, formularios y conexión con MySQL.</p>
+      </div>
+
+      <div class="card">
+        <h3>Jinja2</h3>
+        <p>Motor de plantillas de Flask. Permite lógica en HTML usando {{ variables }}, {% estructuras %}, filtros y herencia.</p>
+      </div>
+
+      <div class="card">
+        <h3>PIP y Paquetes</h3>
+        <p>Gestor de paquetes oficial de Python. Permite instalar bibliotecas como Flask, Jinja2, PyMySQL, entre otros.</p>
+      </div>
+
+      <div class="card">
+        <h3>Buenas Prácticas en Python</h3>
+        <p>PEP-8 para estilo, uso correcto de espacios, indentación, nombres de funciones, clases y estructuras limpias.</p>
+      </div>
+
+      <div class="card">
+        <h3>Programación Orientada a Objetos</h3>
+        <p>Clases, herencia, métodos, `__init__`, encapsulamiento. Ejemplo con clases `Persona` y `Estudiante`.</p>
+      </div>
+
+      <div class="card">
+        <h3>CRUD en Flask con MySQL</h3>
+        <p>Uso de formulario HTML, rutas POST, conexión con base de datos, inserción y renderización de vistas.</p>
+      </div>
+
+    </div>
+
+    <a href="proyecto14.html" class="boton">← Volver</a>
+  </section>
+
+</body>
+</html>

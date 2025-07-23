@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ejercicios - Proyecto Python Flask</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff7f5;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-image: url('fondo.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px) brightness(0.9);
+      opacity: 0.45;
+      z-index: -2;
+    }
+
+    .navegacion .logo {
+      color: white;
+      padding: 18px;
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+      background-color: #FF9A8B;
+      box-shadow: 0 2px 10px rgba(255,154,139,0.35);
+    }
+
+    .contenido {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #fffdfd;
+      border-radius: 18px;
+      box-shadow: 0 6px 18px rgba(255,154,139,0.2);
+      position: relative;
+      z-index: 10;
+    }
+
+    h3 {
+      color: #FF7A73;
+      font-size: 28px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .tarjeta {
+      background: linear-gradient(135deg, #FFE8E0, #fff5f2);
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(255,154,139,0.15);
+      margin-bottom: 35px;
+      border-left: 8px solid #FF9A8B;
+    }
+
+    .titulo {
+      font-size: 21px;
+      font-weight: bold;
+      margin-bottom: 12px;
+      color: #E45B5B;
+    }
+
+    .descripcion {
+      font-size: 16px;
+      margin-bottom: 12px;
+      color: #444;
+    }
+
+    pre {
+      background-color: #fff0eb;
+      padding: 15px;
+      border-radius: 12px;
+      overflow-x: auto;
+      font-size: 15px;
+      line-height: 1.5;
+      border: 1px solid #ffd8d1;
+    }
+
+    code {
+      font-family: Consolas, monospace;
+      color: #333;
+    }
+
+    .boton {
+      display: block;
+      background-color: #FF9A8B;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 24px;
+      font-size: 18px;
+      text-decoration: none;
+      text-align: center;
+      margin: 40px auto 0;
+      box-shadow: 0 4px 12px rgba(255,154,139,0.4);
+      width: fit-content;
+      transition: background-color 0.3s ease;
+    }
+
+    .boton:hover {
+      background-color: #e96c67;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navegacion">
+      <div class="logo">Ejercicios Semana 16 - Proyecto Python Flask</div>
+    </nav>
+  </header>
+
+  <section class="contenido">
+    <h3>🧪 Ejercicios: Desarrollo Backend con Python y Flask</h3>
+
+    <!-- Tarjetas anteriores -->
+    <div class="tarjeta">
+      <div class="titulo">Registro de usuarios con Flask</div>
+      <div class="descripcion">Ruta que permite registrar usuarios con validación y hash de contraseña:</div>
+      <pre><code>@auth_bp.route('/register', methods=['POST'])
+def register():
+    data = request.get_json()
+    username = data.get('username')
+    password = data.get('password')
+
+    if not username or not password:
+        return jsonify({"error": "Faltan campos requeridos"}), 400
+
+    conn = get_connection()
+    cursor = conn.cursor()
+    hashed = generate_password_hash(password, method='pbkdf2:sha256', salt_length=8)
+
+    cursor.execute("INSERT INTO users (username, password, tolerancia, nivel_tolerancia) VALUES (%s, %s, %s, %s)",
+                  (username, hashed, 0.5, 0.5))  # Valores por defecto
+    conn.commit()
+    return jsonify({"msg": "Usuario registrado exitosamente"}), 201</code></pre>
+    </div>
+
+    <div class="tarjeta">
+      <div class="titulo">Validación de perfil y actualización</div>
+      <div class="descripcion">Actualización de nombre visible y tolerancia con validación:</div>
+      <pre><code>@profile_bp.route('/profile', methods=['PUT'])
+@jwt_required()
+def update_profile():
+    user_id = get_jwt_identity()
+    data = request.get_json()
+    nombre_visible = data.get("nombre_visible")
+    nivel_tolerancia = float(data.get("nivel_tolerancia"))
+
+    if not (0.0 <= nivel_tolerancia <= 1.0):
+        return jsonify({"error": "Nivel fuera de rango"}), 400
+
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("UPDATE users SET nombre_visible=%s, nivel_tolerancia=%s WHERE id=%s",
+                   (nombre_visible, nivel_tolerancia, user_id))
+    conn.commit()
+    return jsonify({"msg": "Perfil actualizado exitosamente"})</code></pre>
+    </div>
+
+    <div class="tarjeta">
+      <div class="titulo">Evaluación de toxicidad en texto</div>
+      <div class="descripcion">Simulación de análisis de toxicidad en mensajes de usuario:</div>
+      <pre><code>def evaluar_toxicidad(texto):
+    palabras_toxicas = ["odio", "tonto", "estúpido"]
+    for palabra in palabras_toxicas:
+        if palabra in texto.lower():
+            return 0.9  # Muy tóxico
+    return 0.1  # No tóxico</code></pre>
+    </div>
+
+    <div class="tarjeta">
+      <div class="titulo">Exportación de datos a PDF en React</div>
+      <div class="descripcion">Función para exportar contenido como PDF usando html2pdf.js:</div>
+      <pre><code>const exportarPDF = () => {
+  const element = document.getElementById("contenedor-pdf");
+  const options = {
+    margin: 0.5,
+    filename: "reporte_financiero.pdf",
+    image: { type: "jpeg", quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+  };
+  html2pdf().set(options).from(element).save();
+};</code></pre>
+    </div>
+
+    <div class="tarjeta">
+      <div class="titulo">Configuración de JWT en Flask</div>
+      <div class="descripcion">Configuración básica para proteger rutas con JWT:</div>
+      <pre><code>from flask_jwt_extended import JWTManager
+
+app = Flask(__name__)
+app.config["JWT_SECRET_KEY"] = "clave_secreta_123"
+jwt = JWTManager(app)
+
+@app.route('/protegido')
+@jwt_required()
+def protegido():
+    usuario_id = get_jwt_identity()
+    return jsonify({"mensaje": f"Acceso válido para el usuario {usuario_id}"})</code></pre>
+    </div>
+
+    <a href="proyecto16.html" class="boton">← Volver</a>
+  </section>
+</body>
+</html>

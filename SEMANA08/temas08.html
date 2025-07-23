@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Desarrollo Backend</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff7f5;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-image: url('fondo.png');
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px) brightness(0.9);
+      opacity: 0.4;
+      z-index: -2;
+    }
+
+    .navegacion .logo {
+      background-color: #FF9A8B;
+      color: white;
+      padding: 15px;
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(255,154,139,0.4);
+    }
+
+    .contenido {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 30px;
+      background-color: #ffffffee;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(255,154,139,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      color: #FF9A8B;
+      border-bottom: 2px solid #FF9A8B;
+      padding-bottom: 8px;
+      margin-bottom: 30px;
+    }
+
+    .grid-temas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background-color: #FFE8E0;
+      border: 2px solid #FF9A8B;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 10px rgba(255,154,139,0.2);
+    }
+
+    .card:hover {
+      background-color: #FF9A8B;
+      color: white;
+      transform: scale(1.03);
+      box-shadow: 0 6px 16px rgba(255,154,139,0.4);
+    }
+
+    .card-icon {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .boton {
+      display: block;
+      background-color: #FF9A8B;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 20px;
+      font-size: 18px;
+      text-decoration: none;
+      text-align: center;
+      margin: 40px auto 0;
+      box-shadow: 0 3px 10px rgba(255,154,139,0.4);
+    }
+
+    .boton:hover {
+      background-color: #e47875;
+    }
+
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: rgba(0,0,0,0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 12px;
+      max-width: 600px;
+      width: 90%;
+      padding: 25px;
+      box-shadow: 0 5px 25px rgba(255,154,139,0.6);
+      position: relative;
+      color: #333;
+    }
+
+    .modal-content h3 {
+      color: #FF9A8B;
+      margin-top: 0;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #FF9A8B;
+      cursor: pointer;
+    }
+
+    .close-modal:hover {
+      color: #e47875;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="navegacion">
+    <div class="logo">Desarrollo Backend </div>
+  </nav>
+</header>
+
+<section class="contenido">
+  <h2>Desarrollo backend: Arquitectura y principios</h2>
+  <div class="grid-temas">
+    <div class="card" data-concepto="Modelo clásico cliente/servidor donde cada página HTML es independiente.">Arquitectura C/S Clásica</div>
+    <div class="card" data-concepto="Arquitectura en capas utilizada para separar responsabilidades del sistema (MVC).">C/S Multicapa (MPA)</div>
+    <div class="card" data-concepto="Single Page Application: una sola página que carga datos dinámicamente con JavaScript.">SPA</div>
+    <div class="card" data-concepto="Combina características SPA con estructura multipágina, como en Next.js.">MPA-SPA Híbridas</div>
+    <div class="card" data-concepto="Arquitectura de puertos y adaptadores para separar lógicamente capas del sistema.">Arquitectura Hexagonal</div>
+    <div class="card" data-concepto="Servidores como Apache, Tomcat, NGINX; ejecutan y sirven aplicaciones web.">Servidores Web</div>
+    <div class="card" data-concepto="Servicio que permite alojar sitios web en Internet. Tipos: compartido, VPS, dedicado, etc.">Hosting Web</div>
+    <div class="card" data-concepto="Uso de servidores virtuales y físicos para ofrecer escalabilidad y flexibilidad en la nube.">Cloud Hosting</div>
+    <div class="card" data-concepto="Identificador único de un sitio web en la red. Incluye nombre + extensión como .com o .org.">Dominio y DNS</div>
+    <div class="card" data-concepto="Parámetros esenciales como puerto, raíz, tiempo de espera, SSL, etc.">Configuración Servidor</div>
+    <div class="card" data-concepto="Apache procesa archivos PHP delegando al motor PHP para generar HTML o JSON.">Apache con PHP</div>
+    <div class="card" data-concepto="Tomcat ejecuta JSPs convirtiéndolos en servlets Java que generan HTML.">Tomcat con JSP</div>
+    <div class="card" data-concepto="Requiere SO, lenguaje backend (Java, PHP, etc.), servidor web, y gestor de BD.">Herramientas Backend</div>
+    <div class="card" data-concepto="MySQL, PostgreSQL, Oracle, entre otros. Usados para gestionar datos relacionales.">Gestores de BD</div>
+    <div class="card" data-concepto="Herramientas como Maven y Gradle para compilar, gestionar dependencias y desplegar proyectos.">Maven y Gradle</div>
+    <div class="card" data-concepto="Método moderno de autenticación con JWT, OAuth, etc. Permite acceso sin reenviar contraseñas.">Tokens</div>
+  </div>
+
+  <a href="proyecto8.html" class="boton">← Volver</a>
+</section>
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close-modal" id="closeModal">&times;</span>
+    <h3>Concepto</h3>
+    <p id="conceptoTexto"></p>
+  </div>
+</div>
+
+<script>
+  const temas = document.querySelectorAll('.card');
+  const modal = document.getElementById('modal');
+  const conceptoTexto = document.getElementById('conceptoTexto');
+  const closeModal = document.getElementById('closeModal');
+
+  temas.forEach(tema => {
+    tema.addEventListener('click', () => {
+      conceptoTexto.textContent = tema.getAttribute('data-concepto');
+      modal.style.display = 'flex';
+    });
+  });
+
+  closeModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ejercicios - Desarrollo Backend</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff7f5;
+      overflow-x: hidden;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('fondo.png');
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px) brightness(0.9);
+      opacity: 0.5;
+      z-index: -2;
+    }
+    .navegacion .logo {
+      color: white;
+      padding: 15px;
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      background-color: #FF9A8B;
+      box-shadow: 0 2px 8px rgba(255,154,139,0.4);
+    }
+    .contenido {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px 30px;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(255,154,139,0.15);
+      position: relative;
+      z-index: 10;
+    }
+    h3 {
+      color: #FF9A8B;
+      font-size: 26px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .tarjeta {
+      background-color: #FFE8E0;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(255,154,139,0.2);
+      margin-bottom: 30px;
+    }
+    .tarjeta:hover {
+      background-color: #FF9A8B;
+      color: rgb(255, 0, 0);
+    }
+    .titulo {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .descripcion {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+    pre {
+      background-color: #fff0eb;
+      padding: 10px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 14px;
+    }
+    .boton {
+      display: block;
+      background-color: #FF9A8B;
+      color: white;
+      padding: 12px 28px;
+      text-decoration: none;
+      border-radius: 20px;
+      font-size: 18px;
+      margin: 40px auto 0;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(255,154,139,0.4);
+      width: fit-content;
+    }
+    .boton:hover {
+      background-color: #e47875;
+      box-shadow: 0 5px 15px rgba(228,120,117,0.7);
+    }
+    .particulas {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+    }
+    .particula {
+      width: 10px;
+      height: 10px;
+      background-color: #ffc1b6;
+      position: absolute;
+      border-radius: 50%;
+      animation: flotar 10s infinite ease-in-out;
+    }
+    .particula:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+    .particula:nth-child(2) { top: 50%; left: 25%; animation-delay: 2s; }
+    .particula:nth-child(3) { top: 70%; left: 40%; animation-delay: 4s; }
+    .particula:nth-child(4) { top: 30%; left: 80%; animation-delay: 6s; }
+    .particula:nth-child(5) { top: 80%; left: 65%; animation-delay: 8s; }
+    @keyframes flotar {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      50% { transform: translateY(-20px) scale(1.2); opacity: 0.6; }
+      100% { transform: translateY(0) scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="particulas">
+    <div class="particula"></div>
+    <div class="particula"></div>
+    <div class="particula"></div>
+    <div class="particula"></div>
+    <div class="particula"></div>
+  </div>
+
+  <header>
+    <nav class="navegacion">
+      <div class="logo">Ejercicios Backend Java Spring</div>
+    </nav>
+  </header>
+
+  <section class="contenido">
+    <h3>Ejercicios - Desarrollo Backend Java Spring</h3>
+
+    <div class="tarjeta">
+      <div class="titulo">Instalación de JDK</div>
+      <div class="descripcion">Instala el JDK y configura JAVA_HOME y PATH.</div>
+      <pre><code>JAVA_HOME = C:\java\jdk-19.0.2
+PATH += ;%JAVA_HOME%\bin
+
+// Verifica instalación
+java --version
+javac --version</code></pre>
+    </div>
+
+    <div class="tarjeta">
+      <div class="titulo">Formulario JSP con cálculo de factorial</div>
+      <div class="descripcion">Ejemplo de un JSP que calcula el factorial de un número.</div>
+      <pre><code>&lt;% 
+String n = request.getParameter("numero");
+if(n != null){
+  int num = Integer.parseInt(n);
+  int fact = 1;
+  for(int i = 1; i &lt;= num; i++) fact *= i;
+  out.println("Factorial: " + fact);
+}
+%&gt;</code></pre>
+    </div>
+
+    <div class="tarjeta">
+      <div class="titulo">Spring Boot REST: Controlador básico</div>
+      <div class="descripcion">Devuelve datos de alumno usando @RestController.</div>
+      <pre><code>@RestController
+public class AlumnoController {
+  @GetMapping("/alumno/{id}/{nota}")
+  public ResponseEntity&lt;Map&lt;String,Object&gt;&gt; getAlumno(
+    @PathVariable int id, @PathVariable double nota){
+    
+    Map&lt;String,Object&gt; json = new HashMap&lt;&gt;();
+    json.put("id", id);
+    json.put("nota", nota);
+    return ResponseEntity.ok(json);
+  }
+}</code></pre>
+    </div>
+
+    <div class="tarjeta">
+      <div class="titulo">Promedio con parámetros GET</div>
+      <div class="descripcion">Promedio de 3 notas enviado por URL.</div>
+      <pre><code>@GetMapping("/alumno/{id}")
+public ResponseEntity&lt;Map&lt;String,Object&gt;&gt; promedio(
+  @PathVariable int id,
+  @RequestParam double n1,
+  @RequestParam double n2,
+  @RequestParam double n3){
+    
+  double promedio = (n1 + n2 + n3) / 3;
+  Map&lt;String,Object&gt; json = new HashMap&lt;&gt;();
+  json.put("id", id);
+  json.put("promedio", promedio);
+  return ResponseEntity.ok(json);
+}</code></pre>
+    </div>
+
+    <div class="tarjeta">
+      <div class="titulo">Archivo Maven básico (pom.xml)</div>
+      <div class="descripcion">Plantilla inicial para proyecto Maven.</div>
+      <pre><code>&lt;project&gt;
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+  &lt;groupId&gt;com.miempresa&lt;/groupId&gt;
+  &lt;artifactId&gt;miapp&lt;/artifactId&gt;
+  &lt;version&gt;1.0.0&lt;/version&gt;
+  &lt;properties&gt;
+    &lt;maven.compiler.source&gt;17&lt;/maven.compiler.source&gt;
+    &lt;maven.compiler.target&gt;17&lt;/maven.compiler.target&gt;
+  &lt;/properties&gt;
+&lt;/project&gt;</code></pre>
+    </div>
+
+    <a href="proyecto9.html" class="boton">← Volver</a>
+  </section>
+</body>
+</html>

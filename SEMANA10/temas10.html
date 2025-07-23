@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>JSP, Jakarta y Spring - Desarrollo Backend</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff7f5;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-image: url('fondo.png');
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px) brightness(0.9);
+      opacity: 0.4;
+      z-index: -2;
+    }
+
+    .navegacion .logo {
+      background-color: #FF9A8B;
+      color: white;
+      padding: 15px;
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(255,154,139,0.4);
+    }
+
+    .contenido {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 30px;
+      background-color: #ffffffee;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(255,154,139,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      color: #FF9A8B;
+      border-bottom: 2px solid #FF9A8B;
+      padding-bottom: 8px;
+      margin-bottom: 30px;
+    }
+
+    .grid-temas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background-color: #FFE8E0;
+      border: 2px solid #FF9A8B;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 3px 10px rgba(255,154,139,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      background-color: #FF9A8B;
+      color: white;
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(255,154,139,0.4);
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #FF4F4F;
+      margin-bottom: 10px;
+    }
+
+    .card:hover .card-title {
+      color: white;
+    }
+
+    .card-text {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    .card:hover .card-text {
+      color: #fff;
+    }
+
+    .boton {
+      display: block;
+      background-color: #FF9A8B;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 20px;
+      font-size: 18px;
+      text-decoration: none;
+      text-align: center;
+      margin: 40px auto 0;
+      box-shadow: 0 3px 10px rgba(255,154,139,0.4);
+      width: fit-content;
+    }
+
+    .boton:hover {
+      background-color: #e47875;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navegacion">
+      <div class="logo">JSP, Jakarta y Spring - Desarrollo Backend</div>
+    </nav>
+  </header>
+
+  <section class="contenido">
+    <h2>Temas Clave - JSP, Jakarta EE y Spring Framework</h2>
+    <div class="grid-temas">
+
+      <div class="card">
+        <div class="card-title">JSP (Jakarta Server Pages)</div>
+        <div class="card-text">
+          Tecnología basada en Java que permite crear contenido HTML dinámico desde el servidor usando código embebido Java con etiquetas como &lt;% %&gt; y expresiones.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Servlets</div>
+        <div class="card-text">
+          Clases Java que se ejecutan en un servidor y responden a solicitudes HTTP. Sirven como base de controladores en arquitecturas MVC con JSP.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Arquitectura MVC con JSP</div>
+        <div class="card-text">
+          Modelo: JavaBeans o entidades. Vista: JSP. Controlador: Servlets. Este patrón separa la lógica de negocios de la interfaz de usuario.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Apache Tomcat</div>
+        <div class="card-text">
+          Servidor de aplicaciones ligero que permite ejecutar servlets y JSP. Compatible con Jakarta EE. Ideal para entornos de desarrollo.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Jakarta EE</div>
+        <div class="card-text">
+          Plataforma empresarial para construir aplicaciones web en Java. Incluye especificaciones como Servlets, JSP, JPA, CDI y EJB.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Spring Framework</div>
+        <div class="card-text">
+          Framework modular para el desarrollo de aplicaciones Java robustas, basado en Inversión de Control (IoC) y programación orientada a aspectos.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Spring Boot</div>
+        <div class="card-text">
+          Herramienta que simplifica el desarrollo y despliegue de proyectos Spring con configuración automática, servidor embebido y starter dependencies.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Integración JSP + Spring</div>
+        <div class="card-text">
+          Las vistas JSP pueden usarse en proyectos Spring MVC, donde los controladores devuelven rutas a vistas renderizadas por motores como InternalResourceViewResolver.
+        </div>
+      </div>
+
+    </div>
+
+    <a href="proyecto10.html" class="boton">← Volver</a>
+  </section>
+
+</body>
+</html>

@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Ejercicios - Semana 07</title>
+  <title>Ejercicios - Hooks en React</title>
   <style>
     body {
       margin: 0;
@@ -116,6 +116,14 @@
     .particula:nth-child(3) { top: 70%; left: 40%; animation-delay: 4s; }
     .particula:nth-child(4) { top: 30%; left: 80%; animation-delay: 6s; }
     .particula:nth-child(5) { top: 80%; left: 65%; animation-delay: 8s; }
+
+    .imagen-resultado {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-top: 15px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+
     @keyframes flotar {
       0% { transform: translateY(0) scale(1); opacity: 1; }
       50% { transform: translateY(-20px) scale(1.2); opacity: 0.6; }
@@ -134,49 +142,37 @@
 
   <header>
     <nav class="navegacion">
-      <div class="logo">Ejercicios Resueltos</div>
+      <div class="logo">Ejercicios Hooks React</div>
     </nav>
   </header>
 
   <section class="contenido">
-    <h3>Ejercicios Prácticos - Semana 07</h3>
+    <h3>Ejercicios - Uso de Hooks en React</h3>
+
     <div class="tarjeta">
-      <div class="titulo">Creación de un Proyecto en React</div>
-      <div class="descripcion"></div>
-      <img src="img01.png" alt="Resultado de Emmet" class="imagen-resultado" />
-      <img src="img01_2.png" alt="Resultado de Emmet" class="imagen-resultado" />
-    </div>
-    </div>
+      <div class="titulo">useState - Contador simple</div>
+      <div class="descripcion">Hook para manejar estados en componentes funcionales.</div>
+      <img src="hook01.png" alt="Uso de useState en React" class="imagen-resultado" />
     </div>
 
     <div class="tarjeta">
-      <div class="titulo">Jsx - JavaScript eXtensible</div>
-      <div class="descripcion"></div>
-       <img src="img02.png" alt="Resultado de Emmet" class="imagen-resultado" />
+      <div class="titulo">useEffect - Efecto secundario</div>
+      <div class="descripcion">Hook que permite ejecutar efectos después del renderizado.</div>
+      <img src="hook02.png" alt="Uso de useEffect en React" class="imagen-resultado" />
     </div>
 
     <div class="tarjeta">
-      <div class="titulo">TypeScript</div>
-      <div class="descripcion"></div>
-      <img src="img03.png" alt="Resultado de Emmet" class="imagen-resultado" />
+      <div class="titulo">useRef - Referencias a elementos</div>
+      <div class="descripcion">Hook para mantener valores que no causan re-renderizados.</div>
+      <img src="hook03.png" alt="Uso de useRef en React" class="imagen-resultado" />
     </div>
 
-        <div class="tarjeta">
-      <div class="titulo">Diseñar Componentes en React</div>
-      <div class="descripcion"></div>
-<img src="img04.png" alt="Resultado de Emmet" class="imagen-resultado" />
+    <div class="tarjeta">
+      <div class="titulo">useContext - Uso de contexto global</div>
+      <div class="descripcion">Hook para acceder al contexto global definido por React.</div>
+      <img src="hook04.png" alt="Uso de useContext en React" class="imagen-resultado" />
     </div>
 
-            <div class="tarjeta">
-      <div class="titulo">Librería tailiwind CSS en React</div>
-      <div class="descripcion"></div>
-   <img src="img05.png" alt="Resultado de Emmet" class="imagen-resultado" />
-    </div>
-
-                <div class="tarjeta">
-      <div class="titulo">Props y Children de Componentes</div>
-      <div class="descripcion"></div>
-<img src="img06.png" alt="Resultado de Emmet" class="imagen-resultado" />
     <a href="proyecto7.html" class="boton">← Volver</a>
   </section>
 </body>

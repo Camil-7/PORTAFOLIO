@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sistema Inteligente con Python - Temas</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff7f5;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('fondo.png');
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px) brightness(0.9);
+      opacity: 0.4;
+      z-index: -2;
+    }
+
+    .navegacion .logo {
+      background-color: #FF9A8B;
+      color: white;
+      padding: 15px;
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(255,154,139,0.4);
+    }
+
+    .contenido {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 30px;
+      background-color: #ffffffee;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(255,154,139,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      color: #FF9A8B;
+      border-bottom: 2px solid #FF9A8B;
+      padding-bottom: 8px;
+      margin-bottom: 30px;
+    }
+
+    .grid-temas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: linear-gradient(135deg, #ffe0dc, #fff7f5);
+      border: 2px solid #FF9A8B;
+      border-radius: 20px;
+      padding: 25px 20px;
+      box-shadow: 0 6px 18px rgba(255, 154, 139, 0.25);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255, 154, 139, 0.4);
+      background: linear-gradient(135deg, #FF9A8B, #ffc8c0);
+      color: white;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: #FF4F4F;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card p {
+      font-size: 14.5px;
+      line-height: 1.5;
+      color: #333;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card:hover h3,
+    .card:hover p {
+      color: white;
+    }
+
+    .card::before {
+      content: "🤖";
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 48px;
+      opacity: 0.08;
+      z-index: 1;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover::before {
+      transform: scale(1.2) rotate(5deg);
+    }
+
+    .boton {
+      display: block;
+      background-color: #FF9A8B;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 20px;
+      font-size: 18px;
+      text-decoration: none;
+      text-align: center;
+      margin: 40px auto 0;
+      width: fit-content;
+      box-shadow: 0 3px 10px rgba(255,154,139,0.4);
+    }
+
+    .boton:hover {
+      background-color: #e47875;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navegacion">
+      <div class="logo">Semana 15 - Sistema Inteligente con Python</div>
+    </nav>
+  </header>
+
+  <section class="contenido">
+    <h2>Temas Aprendidos - Sistema Inteligente con Python</h2>
+    <div class="grid-temas">
+
+      <div class="card">
+        <h3>Definición de Sistemas Inteligentes</h3>
+        <p>Percepción sensorial, razonamiento simbólico, aprendizaje adaptativo y capacidad de tomar decisiones autónomas.</p>
+      </div>
+
+      <div class="card">
+        <h3>Ámbitos de Aplicación</h3>
+        <p>Salud, robótica, vehículos autónomos, educación personalizada, logística, finanzas, entre otros.</p>
+      </div>
+
+      <div class="card">
+        <h3>Ejemplos de Sistemas Inteligentes</h3>
+        <p>Watson Health, Tesla, Waymo, Amazon, Alexa, ciudades inteligentes con sensores adaptativos.</p>
+      </div>
+
+      <div class="card">
+        <h3>Arquitectura de un Sistema Inteligente</h3>
+        <p>Incluye módulos de percepción, razonamiento, aprendizaje, acción, y la interfaz hombre-máquina.</p>
+      </div>
+
+      <div class="card">
+        <h3>Componentes Técnicos del Sistema</h3>
+        <p>Agentes inteligentes, toma de decisiones, optimización, monitoreo de plagas, visualización con drones.</p>
+      </div>
+
+      <div class="card">
+        <h3>Redes Neuronales y Deep Learning</h3>
+        <p>Arquitecturas como CNN, RNN, LSTM, Transformers. Técnicas de entrenamiento y optimización.</p>
+      </div>
+
+      <div class="card">
+        <h3>Modelos Discriminativos y Generativos</h3>
+        <p>Desde SVM y regresión logística hasta GANs, autoencoders y modelos bayesianos.</p>
+      </div>
+
+      <div class="card">
+        <h3>Large Language Models (LLM)</h3>
+        <p>Transformers como GPT, Claude, LLaMA. Usos: generación de texto, traducción, respuestas y más.</p>
+      </div>
+
+      <div class="card">
+        <h3>Laboratorio: Sistema Experto</h3>
+        <p>Simulación de diagnóstico médico con reglas IF–THEN usando clases en Python.</p>
+      </div>
+
+      <div class="card">
+        <h3>Laboratorio: Lógica Difusa</h3>
+        <p>Controlador difuso para climatización con scikit-fuzzy. Manejo de temperatura y potencia de aire.</p>
+      </div>
+
+      <div class="card">
+        <h3>Laboratorio: Flask + LLM</h3>
+        <p>Interfaz web con Flask para conversar con un modelo Llama 3 vía Hugging Face y HTML interactivo.</p>
+      </div>
+
+      <div class="card">
+        <h3>Evaluación de Repaso</h3>
+        <p>Incluye IA fuerte/débil, modelos generativos, lógica difusa, LLMs, redes profundas y sistemas expertos.</p>
+      </div>
+
+    </div>
+
+    <a href="proyecto15.html" class="boton">← Volver</a>
+  </section>
+
+</body>
+</html>

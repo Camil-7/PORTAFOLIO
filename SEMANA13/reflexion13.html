@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reflexión - Semana 13</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff7f5;
+      overflow-x: hidden;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('fondo.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px) brightness(0.9);
+      opacity: 0.5;
+      z-index: -2;
+    }
+
+    .navegacion .logo {
+      color: white;
+      padding: 15px;
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      background-color: #FF9A8B;
+      box-shadow: 0 2px 8px rgba(255,154,139,0.4);
+    }
+
+    .contenido {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(255,154,139,0.15);
+      position: relative;
+      z-index: 10;
+    }
+
+    h3 {
+      color: #FF9A8B;
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #333;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      text-align: justify;
+    }
+
+    .imagen-proyecto {
+      display: block;
+      margin: 30px auto;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(255,154,139,0.3);
+    }
+
+    .boton {
+      display: block;
+      background-color: #FF9A8B;
+      color: white;
+      padding: 12px 28px;
+      text-decoration: none;
+      border-radius: 20px;
+      font-size: 18px;
+      margin: 40px auto 0;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(255,154,139,0.4);
+      width: fit-content;
+      transition: background-color 0.3s ease;
+    }
+
+    .boton:hover {
+      background-color: #e47875;
+      box-shadow: 0 5px 15px rgba(228,120,117,0.7);
+    }
+
+    .particulas {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+    }
+
+    .particula {
+      width: 10px;
+      height: 10px;
+      background-color: #ffc1b6;
+      position: absolute;
+      border-radius: 50%;
+      animation: flotar 10s infinite ease-in-out;
+    }
+
+    .particula:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+    .particula:nth-child(2) { top: 50%; left: 25%; animation-delay: 2s; }
+    .particula:nth-child(3) { top: 70%; left: 40%; animation-delay: 4s; }
+    .particula:nth-child(4) { top: 30%; left: 80%; animation-delay: 6s; }
+    .particula:nth-child(5) { top: 80%; left: 65%; animation-delay: 8s; }
+
+    @keyframes flotar {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      50% { transform: translateY(-20px) scale(1.2); opacity: 0.6; }
+      100% { transform: translateY(0) scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="particulas">
+    <div class="particula"></div>
+    <div class="particula"></div>
+    <div class="particula"></div>
+    <div class="particula"></div>
+    <div class="particula"></div>
+  </div>
+
+  <header>
+    <nav class="navegacion">
+      <div class="logo">Semana 13</div>
+    </nav>
+  </header>
+
+  <section class="contenido">
+    <h3>💬 Reflexión Personal - Desarrollo Backend con PHP & Laravel</h3>
+    <p>Durante esta semana, profundicé en el stack de desarrollo backend con PHP y Laravel, descubriendo lo potente y elegante que puede ser este ecosistema para construir aplicaciones web robustas. Laravel me sorprendió por su estructura clara, su sistema de rutas intuitivo y su integración fluida con bases de datos a través de Eloquent ORM.</p>
+    <p>Una de las experiencias más enriquecedoras fue aprender a crear controladores, migraciones, modelos y rutas RESTful con facilidad. Laravel permite mantener el código limpio, organizado y muy expresivo, lo cual facilita el trabajo en equipo y el mantenimiento a largo plazo.</p>
+    <p>Además, el uso de <strong>Composer</strong> como gestor de dependencias me ayudó a comprender cómo se instalan paquetes modernos, y cómo Laravel aprovecha esta herramienta para escalar funcionalidades. Me familiaricé también con las vistas Blade, el sistema de autenticación y la interacción con formularios y controladores.</p>
+    <p>Gracias a esta etapa, me siento más confiada en el desarrollo backend moderno, y lista para implementar soluciones completas que incluyan seguridad, control de sesiones, validaciones y APIs eficientes. Laravel no solo me brindó herramientas técnicas, sino también una filosofía clara sobre cómo escribir código profesional y sostenible.</p>
+
+    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968322.png" alt="Reflexión PHP Laravel" class="imagen-proyecto" width="180">
+    <a href="proyecto13.html" class="boton">← Volver</a>
+  </section>
+
+</body>
+</html>
